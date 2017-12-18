@@ -1,0 +1,28 @@
+#!/bin/bash
+#$ -N icosmo
+#$ -S /bin/bash
+#$ -o /home/xyh/icosmo/logs/DH_SNLS6 -j y
+# join stderr and stdout
+  
+  unset SGE_ROOT
+  cd /home/xyh/icosmo
+
+  #rm run_log_test.ini 
+#  cd source;make clean; make ; cd .. 
+
+#  make clean; make
+
+  echo $NSLOTS
+  tmphosts=`cat $TMPDIR/machines`
+  hosts=`echo $tmphosts | sed 's/\ /,/g'`
+  echo $hosts
+
+  mpirun -np $NSLOTS -H $hosts \
+    -mca btl_openib_if_include mlx4_0:1 -mca btl sm,self,openib \
+    -mca coll_fca_np 4 -mca coll_fca_enable 0 \
+    bin/iCosmo params/DH_SNLS.ini
+  
+  # -bind-to core
+  # "-mca coll_fca_enable 1" accelerates collective communications, but some
+  # programs hangs with such an option when lens is used (i.e., b130.q).
+  # If your program does not run correctly, set "-mca coll_fca_enable 0".
