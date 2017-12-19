@@ -11,9 +11,9 @@ http://code.google.com/p/inih/
 #define __INI_H__
 
 /* Make this header file easier to include in C++ code */
-// #ifdef __cplusplus
+#ifdef __cplusplus
 extern "C" {
-// #endif
+#endif
 
 #include <stdio.h>
 
@@ -70,8 +70,8 @@ int ini_parse_file(FILE* file,
 #define INI_MAX_LINE 200
 #endif
 
-// #ifdef __cplusplus
+#ifdef __cplusplus
 }
-// #endif
+#endif
 
 #endif /* __INI_H__ */
