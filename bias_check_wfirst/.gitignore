@@ -1,0 +1,10 @@
+analysis_*
+WFIRST
+WFIRST_fixed_Num
+JLA_WFIRST
+jobs*
+logs*
+temp
+*.tar.gz
+w_inputs
+w_fixed_num_inputs
