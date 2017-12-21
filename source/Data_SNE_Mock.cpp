@@ -119,16 +119,15 @@ namespace Data{
 			while( getline(infile,line) ){
 				if( !Read::Is_Commented(line) && !Read::Is_Empty(line) ){
 					stringstream stream(line);
-					string name;
-					double zi, mui, dmui, muixx;
-					stream >> name >> zi >> mui >> dmui >> muixx;
+					double zi, mui, dmui, mu_theory;
+					stream >> zi >> mui >> dmui >> mu_theory;
 
 					vec_z.push_back(zi);
 					vec_dmu.push_back(dmui);
 					if( has_err )
 						vec_mu.push_back(mui);
 					else
-						vec_mu.push_back(muixx);
+						vec_mu.push_back(mu_theory);
 
 					++count;
 				}
