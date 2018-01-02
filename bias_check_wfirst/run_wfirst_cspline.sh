@@ -6,10 +6,10 @@
 ################################################################################
 
 # total number of mock samples
-NumMockTot=4
+NumMockTot=1000
 
 # counter (start from 1)
-n=1
+n=101
 
 # current work directory
 PWD=`pwd`
@@ -28,7 +28,6 @@ then
 else
     echo "folder $DIR_INPUTS does not exist, so I will create it"
     mkdir $DIR_INPUTS
-    touch $DIR_INPUTS"/.base"
 fi
 
 # JOB script directory
@@ -39,9 +38,7 @@ then
     echo "folder $DIR_JOBS already exist"
 else
     echo "folder $DIR_JOBS does not exist, so I will create it"
-#    echo "mkdir $DIR_JOBS ..."
     mkdir $DIR_JOBS
-    touch $DIR_JOBS"/.base"
 fi
 
 # LOGFILE directory
@@ -52,9 +49,7 @@ then
     echo "folder $DIR_LOGS already exist"
 else
     echo "folder $DIR_LOGS does not exist, so I will create it"
-#    echo "mkdir $DIR_LOGS ..."
     mkdir $DIR_LOGS
-    touch $DIR_LOGS"/.base"
 fi
 
 # chain directory

@@ -61,7 +61,7 @@ while cnt < num_of_mocks:
 	ks_stats, pvalue = stats.kstest(dmu/mu_std,cdf='norm')
 	if pvalue > P_VALUE:
 		print 'yeap! got a good mock sample! pvalue = %g'%(pvalue)
-		fname = 'mock_WFIRST_1000/WFIRST_SN_'+str(cnt+1)+'.txt'
+		fname = 'mock_WFIRST_1000_B/WFIRST_SN_'+str(cnt+1)+'.txt'
 		fp = open(fname,'w')
 		for i in range(len(mu)):
 			print >> fp, '%8.6f %10.8f %10.8f %10.8f'%(z[i],mu[i]+dmu[i],mu_std[i],mu[i])
